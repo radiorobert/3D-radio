@@ -1,9 +1,5 @@
-import { Box, OrbitControls, Stage, Text, Html } from "@react-three/drei";
-import { useState } from "react";
 import Radio from "./Radio";
 import Waveform from "./Waveform";
-
-import colors from "../lib/colors";
 
 export default function Experience({ station, setStation }) {
   return (
