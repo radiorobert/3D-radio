@@ -40,7 +40,9 @@ function AnimatedTuner({ id, geometry, material, selected }) {
   });
 
   return (
-    <animated.mesh ref={tunerRef} castShadow receiveShadow scale={0.394} position-x={position} geometry={geometry} material={material} />
+    <animated.mesh ref={tunerRef} castShadow receiveShadow scale={0.394} position-x={position} geometry={geometry} material={material}>
+      <meshStandardMaterial color={"red"} />
+    </animated.mesh>
   );
 }
 
@@ -51,7 +53,7 @@ export default function Radio({ setStation, stationText, position, ...props }) {
 
   return (
     <group {...props} dispose={null}>
-      <group scale={0.025} position={position}>
+      <group scale={0.1} position={position}>
         <mesh
           castShadow
           receiveShadow
@@ -105,7 +107,7 @@ export default function Radio({ setStation, stationText, position, ...props }) {
           geometry={nodes.Display.geometry}
           material={materials["Paint - Enamel Glossy (White)"]}
           scale={0.394}
-        />
+        ></mesh>
         <mesh
           castShadow
           receiveShadow

@@ -4,9 +4,11 @@ import * as THREE from "three";
 
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";
+import AudioAnalyzer from "./AudioAnalyzer";
 
 const count = 42;
 const freqMods = [5, 10, 20, 30];
+
 export default function Waveform({ station }) {
   const mesh = useRef();
 
@@ -40,8 +42,8 @@ export default function Waveform({ station }) {
   });
 
   return (
-    <mesh ref={mesh} position={[0, 0, -1]} rotation={[-Math.PI / 2, 0, 0]} scale={1.5}>
-      <planeGeometry args={[2, 1, 62, 32]} />
+    <mesh ref={mesh} position={[0, -0.5, -1]} rotation={[-Math.PI / 2, 0, 0]} scale={1.5}>
+      <planeGeometry args={[3, 1.3, 62, 32]} />
       <shaderMaterial fragmentShader={fragmentShader} vertexShader={vertexShader} uniforms={uniforms} side={THREE.DoubleSide} />
     </mesh>
   );

@@ -7,7 +7,7 @@ varying float vZ;
 
 void main() {
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-  modelPosition.y += sin(modelPosition.x * 4.0 + u_time * u_freq) * 0.2;
+  modelPosition.y += sin(modelPosition.x * 4.0 + u_time + u_freq) * sin(modelPosition.x * 3.0 + u_time + u_freq) * 0.2;
 
   vZ = modelPosition.y;
 
