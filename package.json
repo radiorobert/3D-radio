@@ -2,7 +2,16 @@
   "name": "Radio Portfolio",
   "version": "1.0.2",
   "description": "A threejs portfolio piece",
-  "keywords": ["r3f", "react", "three", "vite", "starter", "react three fiber", "sandbox", "codesandbox"],
+  "keywords": [
+    "r3f",
+    "react",
+    "three",
+    "vite",
+    "starter",
+    "react three fiber",
+    "sandbox",
+    "codesandbox"
+  ],
   "author": "Robert Blake",
   "homepage": "https://radiorobert.github.io/3D-radio/",
   "license": "MIT",
@@ -13,6 +22,7 @@
     "@react-three/postprocessing": "^2.15.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.11.0",
     "three": "0.154.0"
   },
   "devDependencies": {
@@ -27,5 +37,10 @@
     "preview": "vite preview",
     "deploy": "vite build && gh-pages -d dist"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

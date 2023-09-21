@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Center, Box, OrbitControls, Environment } from "@react-three/drei";
+import React from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Environment } from "@react-three/drei";
 import Experience from "./components/Experience";
 import * as THREE from "three";
 import colors from "./lib/colors";
 import { useState } from "react";
+import { FaGithub, FaLinkedin, FaBlog } from "react-icons/fa";
 
 const stationHeader = ["ABOUT ME", "MY WORK", "CONTACT"];
 const stationText = [
@@ -20,9 +21,24 @@ function App() {
     <>
       <div style={{ width: "100vw", display: "grid", placeContent: "center", position: "absolute", zIndex: "1", color: colors.blue }}>
         <div style={{ width: "40vw" }}>
-          <h1 style={{ fontSize: "4rem", fontStyle: "bold" }}>{stationHeader[station]}</h1>
+          <h1 style={{ fontSize: "4rem", fontStyle: "bold", textAlign: "center" }}>{stationHeader[station]}</h1>
           <p style={{ width: "100%" }}>{stationText[station]}</p>
         </div>
+      </div>
+
+      <div style={{ position: "absolute", zIndex: "1", color: "white", display: "flex", flexDirection: "column", alignContent: "center" }}>
+        <h2>robert blake</h2>
+        <ul style={{ display: "flex", gap: "1em", justifyContent: "space-evenly", margin: "0", padding: "0" }}>
+          <li style={{ display: "inline" }}>
+            <FaGithub />
+          </li>
+          <li style={{ display: "inline" }}>
+            <FaLinkedin />
+          </li>
+          <li style={{ display: "inline" }}>
+            <FaBlog />
+          </li>
+        </ul>
       </div>
 
       <Canvas
