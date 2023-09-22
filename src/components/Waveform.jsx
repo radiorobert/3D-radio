@@ -1,6 +1,7 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import colors from "../lib/colors";
 
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";
@@ -17,8 +18,8 @@ export default function Waveform({ station }) {
       u_time: {
         value: 0.0,
       },
-      u_colorA: { value: new THREE.Color("#FFE486") },
-      u_colorB: { value: new THREE.Color("#FEB3D9") },
+      u_colorA: { value: new THREE.Color(colors.red) },
+      u_colorB: { value: new THREE.Color(colors.hunyadiYellow) },
       u_freq: {
         value: 0,
       },
@@ -42,8 +43,8 @@ export default function Waveform({ station }) {
   });
 
   return (
-    <mesh ref={mesh} position={[0, -0.5, -1]} rotation={[-Math.PI / 2, 0, 0]} scale={1.5}>
-      <planeGeometry args={[3, 1.3, 62, 32]} />
+    <mesh ref={mesh} position={[0, -0.5, -1.2]} rotation={[-Math.PI / 2, 0, 0]} scale={1.5}>
+      <planeGeometry args={[3, 1.3, 128, 32]} />
       <shaderMaterial fragmentShader={fragmentShader} vertexShader={vertexShader} uniforms={uniforms} side={THREE.DoubleSide} />
     </mesh>
   );
