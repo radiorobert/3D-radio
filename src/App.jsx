@@ -9,12 +9,8 @@ import { FaGithub, FaLinkedin, FaBlog } from "react-icons/fa";
 import WebFont from "webfontloader";
 import Work from "./components/Work";
 
-const stationHeader = ["ABOUT ME", "MY WORK", "CONTACT"];
-const stationText = [
-  "Front end developer using code to make interactive digital experiences",
-  "Here's some of my work: Kool-aid, Riggsward, Otherone",
-  "radio.bearblog.dev",
-];
+const stationHeader = ["ABOUT ME", "MY WORK", "PERSONAL"];
+const stationText = ["Front end developer using code to make interactive digital experiences", "", "radio.bearblog.dev"];
 
 function App() {
   const [station, setStation] = useState(1);
@@ -42,7 +38,7 @@ function App() {
         <div style={{ width: "40vw" }}>
           <h1 style={{ fontSize: "4rem", fontStyle: "bold", textAlign: "center" }}>{stationHeader[station]}</h1>
           <p style={{ width: "100%" }}>{stationText[station]}</p>
-          <Work />
+          {stationHeader[station] === "MY WORK" ? <Work /> : null}
         </div>
       </div>
 
