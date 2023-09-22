@@ -7,6 +7,7 @@ import colors from "./lib/colors";
 import { useState } from "react";
 import { FaGithub, FaLinkedin, FaBlog } from "react-icons/fa";
 import WebFont from "webfontloader";
+import Work from "./components/Work";
 
 const stationHeader = ["ABOUT ME", "MY WORK", "CONTACT"];
 const stationText = [
@@ -41,6 +42,7 @@ function App() {
         <div style={{ width: "40vw" }}>
           <h1 style={{ fontSize: "4rem", fontStyle: "bold", textAlign: "center" }}>{stationHeader[station]}</h1>
           <p style={{ width: "100%" }}>{stationText[station]}</p>
+          <Work />
         </div>
       </div>
 
