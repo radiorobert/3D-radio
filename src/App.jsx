@@ -8,9 +8,11 @@ import { useState } from "react";
 import { FaGithub, FaLinkedin, FaBlog } from "react-icons/fa";
 import WebFont from "webfontloader";
 import Work from "./components/Work";
+import About from "./components/About";
+import Personal from "./components/Personal";
 
 const stationHeader = ["ABOUT ME", "MY WORK", "PERSONAL"];
-const stationText = ["Front end developer using code to make interactive digital experiences", "", "radio.bearblog.dev"];
+const stationText = ["", "", ""];
 
 function App() {
   const [station, setStation] = useState(1);
@@ -35,10 +37,12 @@ function App() {
           fontFamily: "Space Mono",
         }}
       >
-        <div style={{ width: "40vw" }}>
+        <div style={{ width: "80vw", textAlign: "center", position: "relative" }}>
           <h1 style={{ fontSize: "4rem", fontStyle: "bold", textAlign: "center" }}>{stationHeader[station]}</h1>
           <p style={{ width: "100%" }}>{stationText[station]}</p>
+          {stationHeader[station] === "ABOUT ME" ? <About /> : null}
           {stationHeader[station] === "MY WORK" ? <Work /> : null}
+          {stationHeader[station] === "PERSONAL" ? <Personal /> : null}
         </div>
       </div>
 
