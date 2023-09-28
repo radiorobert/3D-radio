@@ -80,13 +80,7 @@ function App() {
         </ul>
       </div>
 
-      <Canvas
-        camera={{ fov: 70, position: [0, 0, 1] }}
-        shadows
-        onCreated={({ gl }) => {
-          gl.toneMapping = THREE.NoToneMapping;
-        }}
-      >
+      <Canvas camera={{ fov: 70, position: [0, 0, 1] }} shadows>
         <OrbitControls />
         <Environment preset='city' />
         <Experience station={station} setStation={setStation} />
