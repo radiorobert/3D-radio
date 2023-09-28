@@ -1,0 +1,13 @@
+.skillsContainer {
+  display: grid;
+  width: 50%;
+  margin: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+}
+
+.skillsContainer > div {
+  text-align: left;
+}
