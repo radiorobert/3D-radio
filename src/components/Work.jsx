@@ -1,13 +1,33 @@
 import React, { useState } from "react";
 
+import s from "./work.module.css";
+
+const projects = {
+  CMM: {
+    writeup:
+      "Interactive museum displays that include map table, video players, timeline, 3D boat driving game, and 3D boat model explorer",
+    images: "",
+    tech: "Three.JS, ReactJS, Node",
+  },
+  DAR: {
+    writeup: "Interactive museum piece where the player gets to create a portrait from the museum assets",
+    images: "",
+    tech: "Node, PixiJS, React",
+  },
+  NCSU: {
+    writeup: "Content management system (CMS) powering building signage and interacive displays.",
+    images: "",
+    tech: "Svelte, Node, Threejs",
+  },
+};
+console.log(projects);
 function SampleModal({ setModal, selected }) {
   return (
-    <div className='modal_container'>
-      <div className='sample_modal'>
-        <h1>{selected}</h1>
-        <p>About the Work</p>
-        <button onClick={() => setModal(false)}>[ X ]</button>
-      </div>
+    <div className={s.sampleModal}>
+      <h1>{selected}</h1>
+      <p>{projects[selected].writeup}</p>
+      <p className={s.techStack}>{projects[selected].tech}</p>
+      <button onClick={() => setModal(false)}>[ X ]</button>
     </div>
   );
 }
@@ -15,16 +35,12 @@ function SampleModal({ setModal, selected }) {
 // NOTE: Set selected could be used to trigger Modal
 function WorkSample({ title, image, link, setModal, setSelected }) {
   return (
-    <div
-      className='sample'
-      style={{ backgroundImage: "url('https://picsum.photos/200')" }}
-      onClick={() => (setModal(true), setSelected(title))}
-    >
-      <div>
-        <h3>
-          {">"} {title}
-        </h3>
-      </div>
+    <div className={s.sampleCard} onClick={() => (setModal(true), setSelected(title))}>
+      <h3 className={s.linkColor}>
+        {">"} {title}
+      </h3>
+
+      <img alt='' src={image} />
     </div>
   );
 }
@@ -36,13 +52,15 @@ function Work() {
   return (
     <>
       {showModal && <SampleModal setModal={setModal} selected={selected} />}
-      <div className={"sample_container"} style={{ opacity: showModal ? "0" : "1" }}>
-        <WorkSample title={"CMM"} image={null} link={null} setModal={setModal} setSelected={setSelected} />
+      {!showModal && (
+        <div className={s.sampleContainer} style={{ opacity: showModal ? "0" : "1" }}>
+          <WorkSample title={"CMM"} image={"./gif/boat.gif"} link={null} setModal={setModal} setSelected={setSelected} />
 
-        <WorkSample title={"NCSU"} image={null} link={null} setModal={setModal} setSelected={setSelected} />
+          <WorkSample title={"NCSU"} image={"./gif/NSCU Building Systems.gif"} link={null} setModal={setModal} setSelected={setSelected} />
 
-        <WorkSample title={"DAR"} image={null} link={null} setModal={setModal} setSelected={setSelected} />
-      </div>
+          <WorkSample title={"DAR"} image={"./gif/DAR Portrait Maker 1.gif"} link={null} setModal={setModal} setSelected={setSelected} />
+        </div>
+      )}
     </>
   );
 }

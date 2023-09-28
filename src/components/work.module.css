@@ -1,0 +1,71 @@
+.linkColor {
+  padding: 2px 0 1px;
+  cursor: pointer;
+  background-image: linear-gradient(transparent 0, transparent calc(50% - 9px), #db504a calc(50% - 9px), #db504a 100%);
+  transition: all 120ms ease-in-out 0s;
+  background-size: 100% 200%;
+  background-position: 0 0;
+  word-break: break-word;
+}
+.linkColor:hover {
+  background-image: linear-gradient(transparent 0, transparent calc(50% - 9px), #db504a calc(50% - 9px), #db504a 100%);
+  background-position: 0 100%;
+}
+
+.sampleContainer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1.5em;
+  z-index: 2;
+}
+
+.sampleCard {
+  position: relative;
+  text-align: left;
+}
+.sampleCard img {
+  height: 200px;
+  border: solid #db504a 8px;
+  box-shadow: 0px 2.8px 2.2px rgba(0, 0, 0, 0.02), 0px 6.7px 5.3px rgba(0, 0, 0, 0.028), 0px 12.5px 10px rgba(0, 0, 0, 0.035),
+    0px 22.3px 17.9px rgba(0, 0, 0, 0.042), 0px 41.8px 33.4px rgba(0, 0, 0, 0.05), 0px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.sampleCard h3 {
+  top: 0;
+  left: 0;
+  color: white;
+}
+
+.sampleModal {
+  position: absolute;
+  border: solid 5px #db504a;
+  color: white;
+  width: 100%;
+  text-align: left;
+  padding: 0 1em;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 5.2px 2.2px rgba(0, 0, 0, 0.02), 0px 12.6px 5.3px rgba(0, 0, 0, 0.028), 0px 23.7px 10px rgba(0, 0, 0, 0.035),
+    0px 42.2px 17.9px rgba(0, 0, 0, 0.042), 0px 79px 33.4px rgba(0, 0, 0, 0.05), 0px 189px 80px rgba(0, 0, 0, 0.07);
+}
+
+.sampleModal button {
+  all: unset;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.sampleModal button:hover {
+  color: white;
+  background-color: #db504a;
+}
+
+.sampleModal h1 {
+  background-color: #db504a;
+}
+
+.techStack {
+  font-style: italic;
+  font-weight: bold;
+}

@@ -45,6 +45,7 @@ body {
   border: solid 5px #084c61;
   position: relative;
   padding: 6em;
+  text-align: left;
 }
 
 .sample div {
@@ -68,21 +69,10 @@ body {
   border-color: white;
 }
 
-.modal_container {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
 .sample_modal {
   position: absolute;
   border: solid 5px #084c61;
-  width: 75%;
+  width: 100%;
   z-index: 10;
   backdrop-filter: blur(10px);
 }
