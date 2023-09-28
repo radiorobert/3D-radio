@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.main > p {
+  text-align: left;
+}
+
+p > a {
+  all: unset;
+  color: white;
+}
+
+.linkColor {
+  padding: 2px 0 1px;
+  cursor: pointer;
+  background-image: linear-gradient(transparent 0, transparent calc(50% - 9px), #db504a calc(50% - 9px), #db504a 100%);
+  transition: all 120ms ease-in-out 0s;
+  background-size: 100% 200%;
+  background-position: 0 0;
+  word-break: break-word;
+}
+.linkColor:hover {
+  background-image: linear-gradient(transparent 0, transparent calc(50% - 9px), #db504a calc(50% - 9px), #db504a 100%);
+  background-position: 0 100%;
+}
