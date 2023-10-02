@@ -38,7 +38,7 @@ export default function Waveform({ station }) {
     mesh.current.material.uniforms.u_freq.value = THREE.MathUtils.lerp(
       mesh.current.material.uniforms.u_freq.value,
       freqMods[station] || 0,
-      0.02
+      0.0002
     );
   });
 
