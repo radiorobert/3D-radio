@@ -20,7 +20,7 @@ const projects = {
     tech: "Svelte, Node, Threejs",
   },
 };
-console.log(projects);
+
 function SampleModal({ setModal, selected }) {
   return (
     <div className={s.sampleModal}>

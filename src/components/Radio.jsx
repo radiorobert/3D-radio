@@ -47,9 +47,9 @@ function AnimatedTuner({ id, geometry, material, selected }) {
 }
 
 export default function Radio({ setStation, stationText, position, ...props }) {
-  const { nodes, materials } = useGLTF("/radio.glb");
+  const { nodes, materials } = useGLTF("radio.glb");
   const [hovered, hover] = useState(null);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState("button_01");
 
   return (
     <group {...props} dispose={null}>

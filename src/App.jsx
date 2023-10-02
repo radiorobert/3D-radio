@@ -15,7 +15,7 @@ const stationHeader = ["ABOUT ME", "MY WORK", "PERSONAL"];
 const stationText = ["", "", ""];
 
 function App() {
-  const [station, setStation] = useState(1);
+  const [station, setStation] = useState(0);
   useEffect(() => {
     WebFont.load({
       google: {
@@ -81,7 +81,6 @@ function App() {
       </div>
 
       <Canvas camera={{ fov: 70, position: [0, 0, 1] }} shadows>
-        <OrbitControls />
         <Environment preset='city' />
         <Experience station={station} setStation={setStation} />
         <mesh>
