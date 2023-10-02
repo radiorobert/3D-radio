@@ -81,6 +81,7 @@ function App() {
       </div>
 
       <Canvas camera={{ fov: 70, position: [0, 0, 1] }} shadows>
+        {import.meta.env.DEV && <OrbitControls />}
         <Environment preset='city' />
         <Experience station={station} setStation={setStation} />
         <mesh>
