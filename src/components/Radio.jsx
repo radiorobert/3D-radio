@@ -8,7 +8,7 @@ import { useFrame } from "@react-three/fiber";
 import { useSpring, animated } from "@react-spring/three";
 import { PowerContext } from "../lib/PowerContext";
 
-const stationPos = { button_01: -0.3, button_02: 2, button_03: 5, button_04: 1 };
+const stationPos = { button_01: 1, button_02: 2, button_03: 5, button_04: -0.3 };
 
 function Tooltip({ position, label, show, usedNav }) {
   return (
@@ -25,7 +25,7 @@ function Tooltip({ position, label, show, usedNav }) {
           textAlign: "center",
         }}
       >
-        {label + " ->"}
+        {label}
       </div>
     </Html>
   );
@@ -37,7 +37,6 @@ export function PowerButton({ id, idx, geometry, material }) {
     position: isPoweredOn ? -0.5 : 0,
     config: { tension: 400, friction: 20 },
   });
-  console.log(position);
 
   return (
     <animated.mesh
@@ -103,15 +102,24 @@ function AnimatedTuner({ id, geometry, material, selected }) {
 }
 
 export default function Radio({ setStation, stationText, position, ...props }) {
+  const { isPoweredOn, setPowerOn } = useContext(PowerContext);
   const { nodes, materials } = useGLTF("radio.glb");
   const [hovered, hover] = useState(null);
   const [selected, setSelected] = useState("");
   const [usedNav, setUsedNav] = useState(false);
 
+  useEffect(() => {
+    if (isPoweredOn) {
+      setSelected("button_01");
+    } else {
+      setSelected("button_04");
+    }
+  }, [isPoweredOn]);
+
   return (
     <group {...props} dispose={null}>
       <group scale={0.1} position={position}>
-        {!usedNav && <Tooltip label={"Click"} position={[-0.75, 8, 0]} usedNav={usedNav} />}
+        {!isPoweredOn && <Tooltip label={"Power Switch"} position={[7.5, 9, 0]} usedNav={usedNav} />}
         <mesh
           castShadow
           receiveShadow

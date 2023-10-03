@@ -28,6 +28,14 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    if (isPoweredOn) {
+      setStation(0);
+    } else {
+      setStation(3);
+    }
+  }, [isPoweredOn]);
+
   return (
     <>
       <div
