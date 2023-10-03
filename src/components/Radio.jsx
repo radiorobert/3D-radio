@@ -62,12 +62,21 @@ export function AnimatedButton({ id, idx, geometry, material, selected, setSelec
     config: { tension: 400, friction: 20 },
   });
 
+  // TODO maybe make this a reducer one day at the top? eh
+  const handleClick = () => {
+    if (isPoweredOn) {
+      setSelected(id);
+      setStation(idx);
+      setUsedNav(true);
+    } else {
+      // TODO add a little tooltip shake so that people know to power on the radio!
+    }
+  };
+
   return (
     <animated.mesh
       position-y={position}
-      onClick={() => {
-        setSelected(id), setStation(idx), setUsedNav(true);
-      }}
+      onClick={handleClick}
       geometry={geometry}
       castShadow
       receiveShadow
