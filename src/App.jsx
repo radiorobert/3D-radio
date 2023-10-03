@@ -10,12 +10,16 @@ import WebFont from "webfontloader";
 import Work from "./components/Work";
 import About from "./components/About";
 import Personal from "./components/Personal";
+import { PowerContext } from "./lib/PowerContext";
 
 const stationHeader = ["ABOUT ME", "MY WORK", "PERSONAL"];
 const stationText = ["", "", ""];
 
 function App() {
-  const [station, setStation] = useState(0);
+  const [station, setStation] = useState(3);
+  const [isPoweredOn, setPowerOn] = useState(false);
+  const powerContextValue = { isPoweredOn, setPowerOn };
+
   useEffect(() => {
     WebFont.load({
       google: {
@@ -80,15 +84,17 @@ function App() {
         </ul>
       </div>
 
-      <Canvas camera={{ fov: 70, position: [0, 0, 1] }} shadows>
-        {import.meta.env.DEV && <OrbitControls />}
-        <Environment preset='city' />
-        <Experience station={station} setStation={setStation} />
-        <mesh>
-          <sphereGeometry args={[2, 32, 16]} />
-          <meshStandardMaterial color={colors.hunyadiYellow} side={THREE.BackSide} />
-        </mesh>
-      </Canvas>
+      <PowerContext.Provider value={powerContextValue}>
+        <Canvas camera={{ fov: 70, position: [0, 0, 1] }} shadows>
+          {import.meta.env.DEV && <OrbitControls />}
+          <Environment preset='city' />
+          <Experience station={station} setStation={setStation} />
+          <mesh>
+            <sphereGeometry args={[2, 32, 16]} />
+            <meshStandardMaterial color={colors.hunyadiYellow} side={THREE.BackSide} />
+          </mesh>
+        </Canvas>
+      </PowerContext.Provider>
     </>
   );
 }

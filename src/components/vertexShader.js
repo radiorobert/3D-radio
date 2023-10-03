@@ -1,6 +1,7 @@
 const vertexShader = `
 uniform float u_time;
 uniform float u_freq;
+uniform bool u_power;
 
 varying vec2 vUv;
 varying float vZ;
@@ -12,7 +13,9 @@ void main() {
    // Multiply by u_freq to make the frequency go up
    // A * sin( F*t + theta ) where A = amplitude, F = frequency and theta = phase shift
 
-  modelPosition.y += (0.2 * sin(modelPosition.x * 2.0 + (u_freq * 2.0))) + (0.1 * sin(modelPosition.x * 3.8 + (u_time * 10.0))) + (0.4 * sin(modelPosition.x * 2.0 + (u_freq * 12.0)));
+  if(u_power) {
+    modelPosition.y += (0.2 * sin(modelPosition.x * 2.0 + (u_freq * 2.0))) + (0.1 * sin(modelPosition.x * 3.8 + (u_time * 10.0))) + (0.4 * sin(modelPosition.x * 2.0 + (u_freq * 12.0)));
+  }
   vZ = modelPosition.y;
 
   // Uncomment the code and hit the refresh button below for a more complex effect 🪄
