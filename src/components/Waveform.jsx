@@ -27,7 +27,7 @@ export default function Waveform({ station }) {
         value: 0,
       },
       u_power: {
-        value: isPoweredOn,
+        value: false,
       },
       u_resolution: {
         type: "vec2",
@@ -40,6 +40,8 @@ export default function Waveform({ station }) {
 
   useFrame(state => {
     const { clock } = state;
+    // Toggle the background wave when the radio is powered on
+    mesh.current.material.uniforms.u_power.value = isPoweredOn;
     mesh.current.material.uniforms.u_time.value = clock.getElapsedTime();
     mesh.current.material.uniforms.u_freq.value = THREE.MathUtils.lerp(
       mesh.current.material.uniforms.u_freq.value,
